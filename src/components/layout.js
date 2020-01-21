@@ -1,44 +1,61 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "./header"
-import "./layout.css"
+import "../../styles/tailwind.css"
+import Img from "gatsby-image"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
+    query MyQuery {
+      logo: file(relativePath: { eq: "logo.png" }) {
+        childImageSharp {
+          fluid {
+            aspectRatio
+            base64
+            sizes
+            src
+            srcSet
+          }
         }
       }
     }
   `)
-
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
+      {/* <div
+        className="bg-cover bg-center absolute z-0 h-screen bg-no-repeat"
         style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
+          backgroundImage:
+            "url:http://preview.uxtheme.website/xpider-preview/xpider/img/hero-8.png",
         }}
-      >
+      ></div>
+      <div
+        className="z-0 opacity-90 w-full h-full absolute"
+        style={{
+          background:
+            "linear-gradient(to left, #2f1ce0 0%, #53a0fd 50%, #51eca5 100%)",
+        }}
+      ></div>
+      <div className="absolute w-full flex flex-col">
+        <div
+          className="bg-bottom bg-no-repeat bg-cover"
+          style={{
+            backgroundImage:
+              "url:https://galaxy.up.video/media/backgrounds/bg-curve.svg",
+          }}
+        ></div> */}
+      <header className="container mx-auto p-8 flex justify-between">
+        <div className="w-48">
+          <Img fluid={data.logo.childImageSharp.fluid} alt="PopTips Logo" />
+        </div>
+        <div>
+          <button class="bg-teal-600 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded">
+            Button
+          </button>
+        </div>
+      </header>
+      <div>
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
       </div>
     </>
   )
