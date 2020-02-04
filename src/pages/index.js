@@ -10,7 +10,7 @@ import Emojify from "react-emojione"
 const Container = styled.div`
   position: relative;
   overflow: hidden;
-  width: 550px;
+  width: 500px;
   height: 200px;
 `
 const CarouselUI = ({ children }) => <Container>{children}</Container>
@@ -36,14 +36,14 @@ const IndexPage = () => {
   return (
     <Layout>
       <div className="container mx-auto flex justify-between items-center p-8">
-        <div className="w-1/2 md:flex-shrink-0">
+        <div className="w-1/2">
           <Carousel defaultWait={3500} /*wait for 1000 milliseconds*/>
             <Slide right>
               <div>
-                <h1 className="text-4xl lg:text-5xl xl:text-6xl">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                   Pop Tips! <span>🧙‍♂️</span>
                 </h1>
-                <p className="text-xl md:text-xl lg:text-2xl">
+                <p className="text-lg sm:text-xl md:text-xl lg:text-2xl">
                   <Emojify>
                     <span>🧙‍♂️</span> kopa prokop prokop
                     <br />
@@ -54,20 +54,20 @@ const IndexPage = () => {
             </Slide>
             <Slide right>
               <div>
-                <h1 className="text-4xl lg:text-5xl xl:text-6xl">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                   Pro Tips!! <span>👍</span>
                 </h1>
-                <p className="text-xl md:text-xl lg:text-2xl">
+                <p className="text-lg sm:text-xl md:text-xl lg:text-2xl">
                   <span>🧙‍♂️</span> uz pusku <span>🧙‍♂️</span> niz pusku
                 </p>
               </div>
             </Slide>
             <Slide right>
               <div>
-                <h1 className="text-4xl lg:text-5xl xl:text-6xl">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                   TOP TRIPS!!! <span>🥴</span>
                 </h1>
-                <p className="text-xl md:text-xl lg:text-2xl">
+                <p className="text-lg sm:text-xl md:text-xl lg:text-2xl">
                   STA RADIS A? <span>😹</span>
                 </p>
               </div>
